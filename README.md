@@ -24,12 +24,19 @@ To use the host binaries (typically not what you want)
 ## Install OpenSCAP
 `yum install -y openscap openscap-utils scap-security-guide --skip-broken`
 
-## Run a scan with the OpenSCAP in chroot mode
+## Run a scan with the OpenSCAP in chroot mode (for RHEL8, this is from the docs)
 `oscap-chroot /host/ xccdf eval \
 --profile xccdf_org.ssgproject.content_profile_stig \
 --fetch-remote-resources \
 --report report.html \
 /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml`
+
+## Run a scan against RHCOS
+`oscap-chroot /host/ xccdf eval \
+--profile xccdf_org.ssgproject.content_profile_moderate \
+--fetch-remote-resources \
+--report report.html \
+/usr/share/xml/scap/ssg/content/ssg-rhcos4-ds.xml`
 
 ## Find the debug pod if you didn't point it to a namespace
 `oc get pods -A | grep debug`
