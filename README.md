@@ -24,6 +24,9 @@ To use the host binaries (typically not what you want)
 ## Install OpenSCAP
 `yum install -y openscap openscap-utils scap-security-guide --skip-broken`
 
+## Find a profile
+`oscap info /usr/share/xml/scap/ssg/content/ssg-rhcos4-ds.xml`
+
 ## Run a scan with the OpenSCAP in chroot mode (for RHEL8, this is from the docs)
 `oscap-chroot /host/ xccdf eval \
 --profile xccdf_org.ssgproject.content_profile_stig \
